@@ -25,8 +25,44 @@
       </div>
       </nav>
     </header>
-
     <main>
+
+      <div class="row">
+        <form class="col s12" name="newReview" novalidate>
+
+          <div class="row input-field col s12">
+            <i class="material-icons prefix">info</i>
+            <input id="name" type="text" class="validate" name="name" ng-model="new.name" required>
+            <label for="name">Ice Cream Shop Name</label>
+            <p ng-show="newReview.$invalid">Ice Cream Shop Name Required</p>
+          </div>
+
+          <div class="row input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="author" type="text" class="validate" name="author" ng-model="new.author" required>
+            <label for="author">Author</label>
+            <p ng-show="newReview.$invalid">Author Required</p>
+          </div>
+
+          <div class="row input-field col s12">
+            <i class="material-icons prefix">web</i>
+            <input id="url" type="url" class="validate" name="url" ng-model="new.url" required>
+            <label for="url">Image URL</label>
+            <p ng-show="newReview.$invalid">Invalid URL</p>
+          </div>
+
+          <div class="row input-field col s12">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="description" class="materialize-textarea" name="description" ng-model="new.description" required></textarea>
+            <label for="description">Description</label>
+            <p ng-show="newReview.$invalid">Description Required</p>
+          </div>
+
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit Post
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
 
     </main>
 

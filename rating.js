@@ -8,8 +8,6 @@
 
     this.increaseRating = (shop) => {
       shop.rating ++;
-
-
     }
 
     this.decreaseRating = (shop) => {
