@@ -38,7 +38,7 @@
     authr: 'Harry Pots',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     rating: 7,
-    post_date: 'Friday at 1:33 PM',
+    post_date: 'Sunday at 6:15 PM',
     url: 'http://swoondivers.com/wp-content/uploads/2013/06/IMG_5434.jpg',
     comments: [{
       uerername: 'Sam',

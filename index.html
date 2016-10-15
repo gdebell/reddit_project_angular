@@ -10,18 +10,17 @@
 
     <header class="headerRow">
       <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">three</a></li>
+        <li><a href="#!">Review Date</a></li>
+        <li><a href="#!">Rating</a></li>
+        <li><a href="#!">Alphabetical</a></li>
       </ul>
       <nav>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Reddit Clone</a>
+        <a href="#!" class="brand-logo">Reddit&nbsp;|&nbsp; Local Ice Cream Shops</a>
         <ul class="right hide-on-med-and-down">
-          <li>Submit Post</li>
-          <li>Search</li>
-          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li>Submit Post&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+          <li><input type="text" ng-model="searchBar" placeholder="Search here"></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Sort By:<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
       </div>
       </nav>
@@ -29,7 +28,7 @@
 
     <main>
       <div class="row" ng-controller="CreateContentController">
-        <div ng-repeat="shop in shopsArray">
+        <div ng-repeat="shop in shopsArray | filter: searchBar">
           <div class="col s12 m11">
             <div class="card horizontal">
               <div class="card-image">
@@ -38,7 +37,7 @@
               <div class="card-stacked">
                 <div class="card-content" ng-controller="CreateRatingController as score">
                   <h4 class="header"><strong>{{shop.name}}</strong> | <i class="material-icons" ng-click="score.increaseRating(shop)">thumb_up</i><i class="material-icons" ng-click="score.decreaseRating(shop)">thumb_down</i></button>{{shop.rating}}</h4>
-                  <p> {{shop.description}} | {{shop.author}}</p>
+                  <p> {{shop.description}} | By: {{shop.author}}</p>
                 </div>
                 <div class="card-action">
                   <p><i class="material-icons">today</i>{{shop.post_date}} | <i class="material-icons">comment</i> {{shop.comments.length}} | <i class="material-icons">mode_edit</i>Add Comment</p>
