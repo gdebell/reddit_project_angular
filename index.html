@@ -31,14 +31,26 @@
       <div class="row" ng-controller="CreateContentController">
         <div ng-repeat="shop in shopsArray">
 
-          <img src=" {{shop.url}}" alt="{{shop.name}} image" height="200" width="275">
-          <h3><strong>{{ shop.name}}</strong> | <i class="material-icons">thumb_up</i><i class="material-icons">thumb_down</i></h3>
-          <p>{{shop.description}}</p>
-          <p>{{shop.author}}</p>
-          <p><i class="material-icons">today</i>{{shop.post_date}} | <i class="material-icons">comment</i> {{shop.comments.length}} | <i class="material-icons">mode_edit</i>Add Comment</p>
+          <div class="col s12 m11">
+            <div class="card horizontal">
+              <div class="card-image">
+                <img src="{{ shop.url}}" height="200" width="200">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h4 class="header"><strong>{{shop.name}}</strong> | <i class="material-icons">thumb_up</i><i class="material-icons">thumb_down</i>{{shop.rating}}</h4>
+                  <p> {{shop.description}} | {{shop.author}}</p>
+                </div>
+                <div class="card-action">
+                  <p><i class="material-icons">today</i>{{shop.post_date}} | <i class="material-icons">comment</i> {{shop.comments.length}} | <i class="material-icons">mode_edit</i>Add Comment</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      
+
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
