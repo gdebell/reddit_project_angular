@@ -1,6 +1,6 @@
 (function() {
   'use strict';
 
-  var app = angular.module('redditCreator', []);
+  var app = angular.module('redditCreatorApp', []);
 
 })()
