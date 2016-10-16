@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html ng-app="redditCreatorApp">
   <head>
     <meta charset="utf-8">
@@ -27,38 +27,38 @@
     </header>
     <main>
 
-      <div class="row">
-        <form class="col s12" name="newReview" novalidate>
+      <div class="row" ng-controller="CreateNewShopController as new">
+        <form class="col s12" name="addShop" novalidate>
 
           <div class="row input-field col s12">
             <i class="material-icons prefix">info</i>
-            <input id="name" type="text" class="validate" name="name" ng-model="new.name" required>
+            <input id="name" type="text" class="validate" name="name" ng-model="name" required>
             <label for="name">Ice Cream Shop Name</label>
-            <p ng-show="newReview.$invalid">Ice Cream Shop Name Required</p>
+            <p ng-show="addShop.$invalid">Ice Cream Shop Name Required</p>
           </div>
 
           <div class="row input-field col s12">
             <i class="material-icons prefix">account_circle</i>
-            <input id="author" type="text" class="validate" name="author" ng-model="new.author" required>
+            <input id="author" type="text" class="validate" name="author" ng-model="author" required>
             <label for="author">Author</label>
-            <p ng-show="newReview.$invalid">Author Required</p>
+            <p ng-show="addShop.$invalid">Author Required</p>
           </div>
 
           <div class="row input-field col s12">
             <i class="material-icons prefix">web</i>
-            <input id="url" type="url" class="validate" name="url" ng-model="new.url" required>
+            <input id="url" type="url" class="validate" name="url" ng-model="url" required>
             <label for="url">Image URL</label>
-            <p ng-show="newReview.$invalid">Invalid URL</p>
+            <p ng-show="addShop.$invalid">Invalid URL</p>
           </div>
 
           <div class="row input-field col s12">
             <i class="material-icons prefix">mode_edit</i>
-            <textarea id="description" class="materialize-textarea" name="description" ng-model="new.description" required></textarea>
+            <textarea id="description" class="materialize-textarea" name="description" ng-model="description" required></textarea>
             <label for="description">Description</label>
-            <p ng-show="newReview.$invalid">Description Required</p>
+            <p ng-show="addShop.$invalid">Description Required</p>
           </div>
 
-          <button class="btn waves-effect waves-light" type="submit" name="action">Submit Post
+          <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="addShop.createShop(addShop)">Submit Post
             <i class="material-icons right">send</i>
           </button>
         </form>
@@ -69,9 +69,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
     <script src="app.js"></script>
     <script src="create.post.js"></script>
+    <script src="submit.post.js"></script>
     <script src="rating.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
   </body>
-</html>
+</html> -->

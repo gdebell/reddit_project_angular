@@ -13,8 +13,6 @@
     this.decreaseRating = (shop) => {
       shop.rating --;
     }
-
-
   }
 
 })()
