@@ -37,14 +37,11 @@
     }
 
       $rootScope.goForm = true;
-      console.log($rootScope.goForm);
       this.displayHide = function (data) {
         if ($rootScope.goForm === false) {
           $rootScope.goForm = true;
-          console.log($rootScope.goForm);
         } else {
           $rootScope.goForm = false;
-          console.log($rootScope.goForm);
         }
       }
   }

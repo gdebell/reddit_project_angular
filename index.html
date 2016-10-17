@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Reddit Project Angular</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
@@ -12,19 +12,17 @@
     <header class="headerRow col s12">
 
       <div class="input-field">
-        <ul id="dropdown1" class="dropdown-content"  ng-model="selected">
-          <li><option value="post_date">Review Date</option></li>
-          <li><option value="rating">Rating</option></li>
-          <li><option value="name">Alphabetical</option></li>
-        </ul>
+        <select id="dropdown1" class="dropdown-content"  ng-model="selected">
+          <option value="post_date">Post Date</option>
+          <option value="rating">Rating</option>
+          <option value="name">Name</option>
+        </select>
       </div>
 
       <div>
         <nav>
         <div class="nav-wrapper" ng-controller="CreateNewShopController as new">
-
           <a href="#!" class="brand-logo">Reddit&nbsp;|&nbsp; Local Ice Cream Shops</a>
-
           <ul class="right hide-on-med-and-down">
             <li class="waves-effect waves-light" name="goForm" ng-click="new.displayHide(data)" ng-model="$root.goForm">+ Submit Post</li>
             <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -33,7 +31,6 @@
             <li><a class="dropdown-button" data-activates="dropdown1">Sort By:<i class="material-icons right">arrow_drop_down</i></a></li>
             <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
           </ul>
-
         </div>
         </nav>
       </div>
@@ -42,88 +39,93 @@
 
 
     <main>
-
       <div class="container">
-
         <form class="col s12" name="newShopForm" novalidate ng-controller="SubmitNewShopController as ctrl" ng-submit="ctrl.submitNew()">
 
           <div ng-show="!goForm">
 
-          <h4>Add a New Ice Cream Shop</h4>
-          <div class="row input-field col s12">
-            <i class="material-icons prefix">info</i>
-            <input id="name" type="text" class="validate" name="name" ng-model="ctrl.newShopForm.name" required>
-            <label for="name">Ice Cream Shop Name</label>
-            <p class="invalid" ng-show="addShop.$invalid">Ice Cream Shop Name Required:</p>
-          </div>
+            <h4>Add a New Ice Cream Shop</h4>
+            <div class="row input-field col s12">
+              <i class="material-icons prefix">info</i>
+              <input id="name" type="text" class="validate" name="name" ng-model="ctrl.newShopForm.name" required>
+              <label for="name">Ice Cream Shop Name</label>
+              <p class="invalid" ng-show="addShop.$invalid">Ice Cream Shop Name Required:</p>
+            </div>
 
-          <div class="row input-field col s12">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="author" type="text" class="validate" name="author" ng-model="ctrl.newShopForm.author" required>
-            <label for="author">Author</label>
-            <p class="invalid" ng-show="addShop.$invalid">Author Required</p>
-          </div>
+            <div class="row input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="author" type="text" class="validate" name="author" ng-model="ctrl.newShopForm.author" required>
+              <label for="author">Author</label>
+              <p class="invalid" ng-show="addShop.$invalid">Author Required</p>
+            </div>
 
-          <div class="row input-field col s12">
-            <i class="material-icons prefix">web</i>
-            <input id="url" type="url" class="validate" name="url" ng-model="ctrl.newShopForm.url" required>
-            <label for="url">Image URL</label>
-            <p class="invalid" ng-show="addShop.$invalid">Invalid URL</p>
-          </div>
+            <div class="row input-field col s12">
+              <i class="material-icons prefix">web</i>
+              <input id="url" type="url" class="validate" name="url" ng-model="ctrl.newShopForm.url" required>
+              <label for="url">Image URL</label>
+              <p class="invalid" ng-show="addShop.$invalid">Invalid URL</p>
+            </div>
 
-          <div class="row input-field col s12">
-            <i class="material-icons prefix">mode_edit</i>
-            <textarea id="description" class="materialize-textarea" name="description" ng-model="ctrl.newShopForm.description" required></textarea>
-            <label for="description">Description</label>
-            <p class="invalid" ng-show="addShop.$invalid">Description Required</p>
-          </div>
+            <div class="row input-field col s12">
+              <i class="material-icons prefix">mode_edit</i>
+              <textarea id="description" class="materialize-textarea" name="description" ng-model="ctrl.newShopForm.description" required></textarea>
+              <label for="description">Description</label>
+              <p class="invalid" ng-show="addShop.$invalid">Description Required</p>
+            </div>
 
-          <div class="modal-footer">
-            <button class="btn waves-effect waves-light" name="goForm" ng-click="ctrl.displayHide(data)" ng-model="$root.goForm" type="submit">Submit Post
-              <i class="material-icons right">send</i>
+            <div class="modal-footer">
+              <button class="btn waves-effect waves-light" name="goForm" ng-click="ctrl.displayHide(data)" ng-model="$root.goForm" type="submit">Submit Post
+                <i class="material-icons right">send</i>
             </button>
-          </div>
+            </div>
 
-        </div>
+          </div>
 
         </form>
       </div>
 
-
-
-      <div class="row" ng-controller="CreateContentController">
+      <div class="row" ng-controller="CreateContentController as create">
 
         <div ng-repeat="shop in shopsArray | filter: $root.searchBar | orderBy: selected">
           <div class="col s12 m11">
             <div class="card horizontal">
+
               <div class="card-image">
                 <img ng-src="{{ shop.url}}" height="200" width="200">
               </div>
+
               <div class="card-stacked">
                 <div class="card-content" ng-controller="CreateRatingController as score">
-                  <h4 class="header"><strong>{{shop.name}}</strong> | <i class="material-icons" ng-click="score.increaseRating(shop)">thumb_up</i>&nbsp;&nbsp;<i class="material-icons" ng-click="score.decreaseRating(shop)">thumb_down</i>&nbsp;&nbsp{{shop.rating}}</h4>
+                  <h4 class="header"><strong>{{shop.name}}</strong> | <i class="material-icons" ng-click="score.increaseRating(shop)">thumb_up</i>&nbsp;&nbsp;<i class="material-icons" ng-click="score.decreaseRating(shop)">thumb_down</i>&nbsp;&nbsp;{{shop.rating}}</h4>
                   <p> {{shop.description}} | By: {{shop.author}}</p>
                 </div>
+
                 <div class="card-action">
-                  <p><i class="material-icons">today</i>{{shop.post_date}} | <i class="material-icons">comment</i> {{shop.comments.length}} | <i class="material-icons">mode_edit</i>Add Comment</p>
+                  <p><i class="material-icons">today</i>{{shop.post_date}}|<i class="material-icons" ng-click="create.showHide(data)" name="goComment" ng-model="$root.goComment">comment</i> {{comment.comments.length}}|<i class="material-icons">mode_edit</i>Add Comment</p>
+
+                  <div ng-show="goComment">
+                    <p> {{shop.comments[0].username}} {{shop.comments[0].comment}}</p>
+                    <p> {{shop.comments[1].username}} {{shop.comments[1].comment}}</p>
+                  </div>
                 </div>
+
+
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script> -->
-    <!-- <script scr="submit.html"></script> -->
     <script src="app.js"></script>
     <script src="create.post.js"></script>
     <script src="rating.js"></script>
     <script src="submit.post.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <!-- <script src="path/to/angular.js"></script> -->
+
 
 
   </body>

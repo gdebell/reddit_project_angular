@@ -13,6 +13,9 @@
     this.decreaseRating = (shop) => {
       shop.rating --;
     }
+
+    $rootScope.showHide = true;
+
   }
 
 })()
