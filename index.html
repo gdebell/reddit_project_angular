@@ -96,17 +96,28 @@
 
               <div class="card-stacked">
                 <div class="card-content" ng-controller="CreateRatingController as score">
-                  <h4 class="header"><strong>{{shop.name}}</strong> | <i class="material-icons" ng-click="score.increaseRating(shop)">thumb_up</i>&nbsp;&nbsp;<i class="material-icons" ng-click="score.decreaseRating(shop)">thumb_down</i>&nbsp;&nbsp;{{shop.rating}}</h4>
+                  <h4 class="header"><strong>{{shop.name}}</strong> |
+
+                  <md-icon class="material-icons"  ng-click="score.increaseRating(shop)">thumb_up</md-icon>&nbsp;&nbsp;
+
+                  <md-icon class="material-icons" ng-click="score.decreaseRating(shop)">thumb_down
+                  </md-icon>
+
+                  &nbsp;&nbsp;<strong style="color:pink">{{shop.rating}}</strong></h4>
                   <p> {{shop.description}} | By: {{shop.author}}</p>
                 </div>
 
                 <div class="card-action">
-                  <p><i class="material-icons">today</i>{{shop.post_date}}|<i class="material-icons" ng-click="create.showHide(data)" name="goComment" ng-model="$root.goComment">comment</i> {{comment.comments.length}}|<i class="material-icons">mode_edit</i>Add Comment</p>
+                  <p><i class="material-icons">today</i>{{shop.post_date}}|<i class="material-icons" ng-click="create.showHide()" name="goComment" id="{{shop.id}}" ng-model="$root.goComment">comment</i> {{comment.comments.length}}|<i class="material-icons">mode_edit</i>Add Comment</p><p>ID: {{shop.id}}</p>
+
+
 
                   <div ng-show="goComment">
                     <p> {{shop.comments[0].username}} {{shop.comments[0].comment}}</p>
                     <p> {{shop.comments[1].username}} {{shop.comments[1].comment}}</p>
                   </div>
+
+
                 </div>
 
 

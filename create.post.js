@@ -52,9 +52,9 @@
     }]
 
     $rootScope.goComment = false;
-    console.log($rootScope.goComment);
     this.showHide = (data) => {
       console.log('You hit the comment button!');
+      console.log($rootScope);
       //console.log($rootScope.shopsArray[0].comments[0].username);
       //console.log($rootScope.shopsArray[0].comments[0].comment);
       if ($rootScope.goComment === false) {

@@ -19,3 +19,10 @@
   }
 
 })()
+
+//
+// <div ng-class='{highlight: 4 + 4 === 8}'> 4 + 4 = 8</div>
+
+// Icons should be considered view-only elements that should not be used directly as buttons; instead nest a <md-icon> inside a md-button to add hover and click features.
+// 
+// <md-icon md-svg-src="icon.svg" style=" color: rgb(244,67,54)"></md-icon>
