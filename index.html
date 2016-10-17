@@ -103,7 +103,9 @@
                   <md-icon class="material-icons" ng-click="score.decreaseRating(shop)">thumb_down
                   </md-icon>
 
-                  &nbsp;&nbsp;<strong style="color:pink">{{shop.rating}}</strong></h4>
+                  &nbsp;&nbsp;
+
+                  <span ng-class="{red: shop.rating <= 0, green: shop.rating >= 1}">{{shop.rating}}</span></h4>
                   <p> {{shop.description}} | By: {{shop.author}}</p>
                 </div>
 
